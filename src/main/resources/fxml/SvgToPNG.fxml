@@ -1,0 +1,60 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<GridPane fx:controller="tavonatti.stefano.svgtopngresizer.SvgToPNGController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+    <Label text="Load SVG file"
+        GridPane.columnIndex="0"
+        GridPane.rowIndex="0"/>
+
+    <TextField fx:id="InputFile"
+               promptText="Svg file"
+               GridPane.columnIndex="1"
+               GridPane.rowIndex="0"
+               GridPane.columnSpan="2"/>
+
+    <Button text="..."
+            GridPane.columnIndex="3"
+            GridPane.rowIndex="0"
+            onAction="#handleLoadFileButton"
+            />
+
+    <Label text="output folder"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="1"/>
+
+    <TextField
+            fx:id="OutputDir"
+            promptText="Output directory"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="1"
+            GridPane.columnSpan="2"/>
+
+    <Button text="..."
+            GridPane.columnIndex="3"
+            GridPane.rowIndex="1"
+            onAction="#handleOutputDirButton"
+    />
+
+    <HBox
+        GridPane.columnIndex="2"
+        GridPane.rowIndex="2"
+        >
+
+        <Button text="Setting"
+                onAction="#handleSetting"
+        />
+
+        <Button text="Convert"
+                onAction="#handleConvert"
+        />
+
+    </HBox>
+
+
+</GridPane>
