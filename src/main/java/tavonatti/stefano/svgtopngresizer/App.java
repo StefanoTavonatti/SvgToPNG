@@ -10,6 +10,8 @@ import javafx.stage.Stage;
  * Created by stefano on 04/03/16.
  */
 public class App extends Application {
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root= FXMLLoader.load(getClass().getResource("/fxml/SvgToPNG.fxml"));

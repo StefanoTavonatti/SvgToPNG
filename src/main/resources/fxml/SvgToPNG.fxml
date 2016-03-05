@@ -12,7 +12,7 @@
         GridPane.columnIndex="0"
         GridPane.rowIndex="0"/>
 
-    <TextField fx:id="InputFile"
+    <TextField fx:id="inputFileField"
                promptText="Svg file"
                GridPane.columnIndex="1"
                GridPane.rowIndex="0"
@@ -29,7 +29,7 @@
            GridPane.rowIndex="1"/>
 
     <TextField
-            fx:id="OutputDir"
+            fx:id="outputDirField"
             promptText="Output directory"
             GridPane.columnIndex="1"
             GridPane.rowIndex="1"
