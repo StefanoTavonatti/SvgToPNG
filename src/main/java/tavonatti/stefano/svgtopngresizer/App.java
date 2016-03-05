@@ -16,7 +16,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root= FXMLLoader.load(getClass().getResource("/fxml/SvgToPNG.fxml"));
         primaryStage.setTitle("SvgToPNG");
-        primaryStage.setScene(new Scene(root,500,500));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
