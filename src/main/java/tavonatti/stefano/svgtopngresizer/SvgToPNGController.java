@@ -3,6 +3,7 @@ package tavonatti.stefano.svgtopngresizer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -56,14 +57,52 @@ public class SvgToPNGController {
 
     @FXML public void handleConvert(ActionEvent actionEvent) {
         File inputFile=new File(inputFileField.getText());
+        File outputDirectory=new File(outputDirField.getText());
+        System.out.println("Convert");
 
-        if(inputFile!=null){
-            if(inputFile.exists()){
-                if(inputFile.isFile()){
-                    //TODO 
-                }
-            }
+        if(inputFile==null){
+            //TODO error
+            showErrorAlert("File not valid");
+            return;
         }
 
+        if(!inputFile.exists()) {
+            //TODO error
+            showErrorAlert("File not valid");
+            return;
+        }
+
+        if(!inputFile.isFile()){
+            //TODO error
+            showErrorAlert("File not valid");
+            return;
+        }
+
+        if(outputDirectory==null){
+            //TODO error
+            showErrorAlert("Directory not valid");
+            return;
+        }
+
+        if(!outputDirectory.exists()){
+            //TODO error
+            showErrorAlert("Directory not valid");
+            return;
+        }
+
+        if(!outputDirectory.isDirectory()){
+            //TODO error
+            showErrorAlert("Directory not valid");
+            return;
+        }
+
+
+    }
+
+    private void showErrorAlert(String error) {
+        Alert alert=new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(error);
+        alert.setContentText(error);
+        alert.show();
     }
 }
