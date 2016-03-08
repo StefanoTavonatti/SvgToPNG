@@ -8,7 +8,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.batik.transcoder.TranscoderException;
+import tavonatti.stefano.svgtopngresizer.svgUtilities.SvgUtilities;
+
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by stefano on 04/03/16.
@@ -94,6 +98,15 @@ public class SvgToPNGController {
             //TODO error
             showErrorAlert("Directory not valid");
             return;
+        }
+
+        //TODO test
+        try {
+            SvgUtilities.SvgToPNG(inputFile,new File(outputDirectory.getAbsoluteFile()+"/"+inputFile.getName()+".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TranscoderException e) {
+            e.printStackTrace();
         }
 
 
