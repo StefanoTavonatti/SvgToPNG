@@ -2,6 +2,8 @@ package tavonatti.stefano.svgtopngresizer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -57,6 +59,17 @@ public class SvgToPNGController {
     }
 
     @FXML public void handleSetting(ActionEvent actionEvent) {
+        Stage settings=new Stage();
+        settings.setTitle("Settings");
+
+        try {
+            Parent root= FXMLLoader.load(getClass().getResource("/fxml/SettingView.fxml"));
+            settings.setScene(new Scene(root));
+            settings.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 
     @FXML public void handleConvert(ActionEvent actionEvent) {
