@@ -1,5 +1,7 @@
 package tavonatti.stefano.svgtopngresizer.settingsview;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -103,7 +105,22 @@ public class SettingController {
         alert.show();
     }
 
-    public void loadDefaultValue(){
+    public void configure(){
+        mdpiW.textProperty().addListener(new MyChangeListener(mdpiW));
+        mdpiH.textProperty().addListener(new MyChangeListener(mdpiH));
+        hdpiW.textProperty().addListener(new MyChangeListener(hdpiW));
+        hdpiH.textProperty().addListener(new MyChangeListener(hdpiH));
+        xhdpiW.textProperty().addListener(new MyChangeListener(xhdpiW));
+        xhdpiH.textProperty().addListener(new MyChangeListener(xhdpiH));
+        xxhdpiW.textProperty().addListener(new MyChangeListener(xxhdpiW));
+        xxhdpiH.textProperty().addListener(new MyChangeListener(xxhdpiH));
+        xxxhdpiW.textProperty().addListener(new MyChangeListener(xxxhdpiW));
+        xxxhdpiH.textProperty().addListener(new MyChangeListener(xxxhdpiH));
+
+        loadDefaultValue();
+    }
+
+    private void loadDefaultValue(){
         mdpiW.setText(""+SvgUtilities.DEFAULT_MDPI);
         mdpiH.setText(""+SvgUtilities.DEFAULT_MDPI);
         hdpiW.setText(""+SvgUtilities.DEFAULT_HDPI);
