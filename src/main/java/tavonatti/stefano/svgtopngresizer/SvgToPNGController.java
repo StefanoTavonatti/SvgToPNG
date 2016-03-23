@@ -68,6 +68,7 @@ public class SvgToPNGController {
             Parent root= fxmlLoader.load();
             SettingController controller=fxmlLoader.<SettingController>getController();
             controller.setSvgUtilities(getSvgUtilities());
+            controller.loadDefaultValue();
             settings.setScene(new Scene(root));
             settings.show();
         } catch (IOException e) {

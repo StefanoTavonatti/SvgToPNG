@@ -3,6 +3,7 @@ package tavonatti.stefano.svgtopngresizer.settingsview;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
@@ -22,6 +23,10 @@ public class SettingController {
     @FXML private TextField xxxhdpiW,xxxhdpiH;
     private SvgUtilities svgUtilities=new SvgUtilities();
 
+    public SettingController(){
+
+    }
+
     @FXML public void handleLockWidthClick(ActionEvent actionEvent){
         lockHeight.setSelected(false);
         setWidthFieldEnabled(!lockWidth.isSelected());
@@ -35,7 +40,29 @@ public class SettingController {
     }
 
     @FXML public void handleOKClick(ActionEvent actionEvent){
-        //TODO
+        boolean error=false;
+
+        try {
+            svgUtilities.setMdpiW(Integer.parseInt(mdpiW.getText()));
+            svgUtilities.setMdpiH(Integer.parseInt(mdpiH.getText()));
+            svgUtilities.setHdpiW(Integer.parseInt(hdpiW.getText()));
+            svgUtilities.setHdpiH(Integer.parseInt(hdpiH.getText()));
+            svgUtilities.setXhdpiW(Integer.parseInt(xhdpiW.getText()));
+            svgUtilities.setXhdpiH(Integer.parseInt(xhdpiH.getText()));
+            svgUtilities.setXxhdpiW(Integer.parseInt(xxhdpiW.getText()));
+            svgUtilities.setXxhdpiH(Integer.parseInt(xxhdpiH.getText()));
+            svgUtilities.setXxxhdpiW(Integer.parseInt(xxxhdpiW.getText()));
+            svgUtilities.setXxxhdpiH(Integer.parseInt(xxxhdpiH.getText()));
+        }catch (Exception e){
+            error=true;
+            showErrorAlert("Integer parse error");
+        }
+
+        if(!error){
+            Button button= (Button) actionEvent.getSource();
+            ((Stage)button.getScene().getWindow()).close();
+        }
+
     }
 
     @FXML public void handleCancelClick(ActionEvent actionEvent){
@@ -68,4 +95,25 @@ public class SettingController {
     public void setSvgUtilities(SvgUtilities svgUtilities) {
         this.svgUtilities = svgUtilities;
     }
+
+    private void showErrorAlert(String error) {
+        Alert alert=new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(error);
+        alert.setContentText(error);
+        alert.show();
+    }
+
+    public void loadDefaultValue(){
+        mdpiW.setText(""+SvgUtilities.DEFAULT_MDPI);
+        mdpiH.setText(""+SvgUtilities.DEFAULT_MDPI);
+        hdpiW.setText(""+SvgUtilities.DEFAULT_HDPI);
+        hdpiH.setText(""+SvgUtilities.DEFAULT_HDPI);
+        xhdpiW.setText(""+SvgUtilities.DEFAULT_XHDPI);
+        xhdpiH.setText(""+SvgUtilities.DEFAULT_XHDPI);
+        xxhdpiW.setText(""+SvgUtilities.DEFAULT_XXHDPI);
+        xxhdpiH.setText(""+SvgUtilities.DEFAULT_XXHDPI);
+        xxxhdpiW.setText(""+SvgUtilities.DEFAULT_XXXHDPI);
+        xxxhdpiH.setText(""+SvgUtilities.DEFAULT_XXXHDPI);
+    }
+
 }
