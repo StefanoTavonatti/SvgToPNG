@@ -20,9 +20,9 @@
       <Label text="mdpi size" GridPane.rowIndex="2" />
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <TextField fx:id="mdpiW"/>
+            <TextField fx:id="mdpiW" />
              <Label text="X" />
-            <TextField fx:id="mdpiH"/>
+            <TextField fx:id="mdpiH" />
          </children>
       </HBox>
       <Label text="hdpi size" GridPane.rowIndex="3" />
@@ -31,38 +31,38 @@
       <Label text="xxxhdpi size" GridPane.rowIndex="6" />
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
-            <TextField fx:id="hdpiW"/>
+            <TextField fx:id="hdpiW" />
              <Label text="X" />
-            <TextField fx:id="hdpiH"/>
+            <TextField fx:id="hdpiH" />
          </children></HBox>
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
-            <TextField fx:id="xhdpiW"/>
+            <TextField fx:id="xhdpiW" />
              <Label text="X" />
-            <TextField fx:id="xhdpiH"/>
+            <TextField fx:id="xhdpiH" />
          </children></HBox>
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <children>
-            <TextField fx:id="xxhdpiW"/>
+            <TextField fx:id="xxhdpiW" />
              <Label text="X" />
-            <TextField fx:id="xxhdpiH"/>
+            <TextField fx:id="xxhdpiH" />
          </children></HBox>
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <children>
-            <TextField fx:id="xxxhdpiW"/>
+            <TextField fx:id="xxxhdpiW" />
              <Label text="X" />
-            <TextField fx:id="xxxhdpiH"/>
+            <TextField fx:id="xxxhdpiH" />
          </children></HBox>
-      <HBox  prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <CheckBox
-                    fx:id="lockWidth"
-                    mnemonicParsing="false" text="width lock"
-                     onAction="#handleLockWidthClick"/>
-            <CheckBox
-                    fx:id="lockHeight"
-                    mnemonicParsing="false" text="height lock"
-                     onAction="#handleLockHeightClick"/>
+            <CheckBox fx:id="lockWidth" mnemonicParsing="false" onAction="#handleLockWidthClick" text="width lock" />
+            <CheckBox fx:id="lockHeight" mnemonicParsing="false" onAction="#handleLockHeightClick" text="height lock" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+         <children>
+            <Button mnemonicParsing="false" text="OK" onAction="#handleOKClick"/>
+            <Button mnemonicParsing="false" text="Cancel" onAction="#handleCancelClick" />
          </children>
       </HBox>
    </children>
@@ -71,6 +71,7 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />

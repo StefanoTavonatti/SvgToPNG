@@ -11,6 +11,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.batik.transcoder.TranscoderException;
+import tavonatti.stefano.svgtopngresizer.settingsview.SettingController;
 import tavonatti.stefano.svgtopngresizer.svgUtilities.SvgUtilities;
 
 import java.io.File;
@@ -23,7 +24,7 @@ public class SvgToPNGController {
 
     @FXML private TextField inputFileField;
     @FXML private TextField outputDirField;
-
+    private SvgUtilities svgUtilities=new SvgUtilities();
 
     @FXML public void handleLoadFileButton(ActionEvent actionEvent) {
         FileChooser fileChooser =new FileChooser();
@@ -63,7 +64,10 @@ public class SvgToPNGController {
         settings.setTitle("Settings");
 
         try {
-            Parent root= FXMLLoader.load(getClass().getResource("/fxml/SettingView.fxml"));
+            FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("/fxml/SettingView.fxml"));
+            Parent root= fxmlLoader.load();
+            SettingController controller=fxmlLoader.<SettingController>getController();
+            controller.setSvgUtilities(getSvgUtilities());
             settings.setScene(new Scene(root));
             settings.show();
         } catch (IOException e) {
@@ -130,5 +134,13 @@ public class SvgToPNGController {
         alert.setTitle(error);
         alert.setContentText(error);
         alert.show();
+    }
+
+    public SvgUtilities getSvgUtilities() {
+        return svgUtilities;
+    }
+
+    public void setSvgUtilities(SvgUtilities svgUtilities) {
+        this.svgUtilities = svgUtilities;
     }
 }

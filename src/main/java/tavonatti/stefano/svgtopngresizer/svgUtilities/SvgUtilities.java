@@ -12,6 +12,8 @@ import java.io.*;
  * Created by stefano on 08/03/16.
  */
 public class SvgUtilities {
+    private boolean heightLocked;
+    private boolean widthLocked;
 
     public static void SvgToPNG(File inputFile,File outputFile) throws IOException, TranscoderException {
 
@@ -31,5 +33,21 @@ public class SvgUtilities {
         // Flush and close the stream.
         ostream.flush();
         ostream.close();
+    }
+
+    public boolean isHeightLocked() {
+        return heightLocked;
+    }
+
+    public void setHeightLocked(boolean heightLocked) {
+        this.heightLocked = heightLocked;
+    }
+
+    public boolean isWidthLocked() {
+        return widthLocked;
+    }
+
+    public void setWidthLocked(boolean widthLocked) {
+        this.widthLocked = widthLocked;
     }
 }
