@@ -1,20 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.geometry.Insets?>
-<GridPane fx:controller="tavonatti.stefano.svgtopngresizer.settingsview.SettingController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
 
-    <Label text="Test"
-           GridPane.columnIndex="0"
-           GridPane.rowIndex="0"
-           />
-
-    <TextField
-        text="drwable"
-        GridPane.columnIndex="1"
-        GridPane.rowIndex="0"
-        />
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tavonatti.stefano.svgtopngresizer.settingsview.SettingController">
+    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+   <children>
+   
+       <Label text="Output folders namename" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+   
+       <TextField text="drawable" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+       
+      <Label text="mdpi size" GridPane.rowIndex="2" />
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <TextField />
+             <Label text="X" />
+            <TextField />
+         </children>
+      </HBox>
+      <Label text="hdpi size" GridPane.rowIndex="3" />
+      <Label text="xhdpi size" GridPane.rowIndex="4" />
+      <Label text="xxhdpi size" GridPane.rowIndex="5" />
+      <Label text="xxxhdpi size" GridPane.rowIndex="6" />
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <children>
+            <TextField />
+             <Label text="X" />
+            <TextField />
+         </children></HBox>
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <children>
+            <TextField />
+             <Label text="X" />
+            <TextField />
+         </children></HBox>
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <children>
+            <TextField />
+             <Label text="X" />
+            <TextField />
+         </children></HBox>
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <children>
+            <TextField />
+             <Label text="X" />
+            <TextField />
+         </children></HBox>
+      <HBox  prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <CheckBox
+                    fx:id="width_lock"
+                    mnemonicParsing="false" text="width lock" />
+            <CheckBox
+                    fx:id="height_lock"
+                    mnemonicParsing="false" text="height lock" />
+         </children>
+      </HBox>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>
