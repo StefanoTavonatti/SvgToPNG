@@ -31,11 +31,18 @@ public class SvgUtilities {
 
     private String outputName=DRAWABLE;
 
-    public static final int DEFAULT_MDPI=48;
-    public static final int DEFAULT_HDPI=72;
-    public static final int DEFAULT_XHDPI=96;
-    public static final int DEFAULT_XXHDPI=144;
-    public static final int DEFAULT_XXXHDPI=192;
+    public static final int DEFAULT_MDPI=24;
+    public static final int DEFAULT_HDPI=36;
+    public static final int DEFAULT_XHDPI=48;
+    public static final int DEFAULT_XXHDPI=72;
+    public static final int DEFAULT_XXXHDPI=96;
+
+    public static final int DEFAULT_MDPI_MIPMAP=48;
+    public static final int DEFAULT_HDPI_MIPMAP=72;
+    public static final int DEFAULT_XHDPI_MIPMAP=96;
+    public static final int DEFAULT_XXHDPI_MIPMAP=144;
+    public static final int DEFAULT_XXXHDPI_MIPMAP=192;
+
     public static final String DRAWABLE="drawable";
     public static final String MIPMAP="mipmap";
 
@@ -135,7 +142,7 @@ public class SvgUtilities {
         fileName+=".png";
 
         try {
-            if(isHeightLocked()) {
+            if(!isHeightLocked()) {
                 SvgToPNG(inputFile, new File(outputMdpi.getAbsolutePath() + "/" + fileName), mdpiW, mdpiH);
                 SvgToPNG(inputFile, new File(outputHdpi.getAbsolutePath() + "/" + fileName), hdpiW, hdpiH);
                 SvgToPNG(inputFile, new File(outputXhdpi.getAbsolutePath() + "/" + fileName), xhdpiW, xhdpiH);

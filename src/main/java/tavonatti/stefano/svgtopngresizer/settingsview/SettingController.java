@@ -71,6 +71,12 @@ public class SettingController {
         ((Stage)button.getScene().getWindow()).close();
     }
 
+    @FXML public void handleComboBoxClick(ActionEvent actionEvent){
+        String s = fileNameComboBox.getValue();
+
+        loadPreset(s);
+    }
+
     private void setWidthFieldEnabled(boolean val){
         mdpiW.setDisable(!val);
         hdpiW.setDisable(!val);
@@ -118,6 +124,7 @@ public class SettingController {
         fileNameComboBox.setEditable(false);
 
         loadDefaultValue();
+        loadComboBox();
     }
 
     private void loadDefaultValue(){
@@ -132,11 +139,45 @@ public class SettingController {
         xxxhdpiW.setText(""+svgUtilities.getXxxhdpiW());
         xxxhdpiH.setText(""+svgUtilities.getXxxhdpiH());
 
+
+    }
+
+    private void loadComboBox() {
         fileNameComboBox.getItems().addAll(SvgUtilities.DRAWABLE,SvgUtilities.MIPMAP);
         fileNameComboBox.setValue(svgUtilities.getOutputName());
 
         lockHeight.setSelected(svgUtilities.isHeightLocked());
         setHeightEnabled(!svgUtilities.isHeightLocked());
+    }
+
+    private void loadPreset(String preset){
+
+        if (preset.equals(SvgUtilities.DRAWABLE)) {
+            svgUtilities.setMdpiW(svgUtilities.DEFAULT_MDPI);
+            svgUtilities.setMdpiH(svgUtilities.DEFAULT_MDPI);
+            svgUtilities.setHdpiW(svgUtilities.DEFAULT_HDPI);
+            svgUtilities.setHdpiH(svgUtilities.DEFAULT_HDPI);
+            svgUtilities.setXhdpiW(svgUtilities.DEFAULT_XHDPI);
+            svgUtilities.setXhdpiH(svgUtilities.DEFAULT_XHDPI);
+            svgUtilities.setXxhdpiW(svgUtilities.DEFAULT_XXHDPI);
+            svgUtilities.setXxhdpiH(svgUtilities.DEFAULT_XXHDPI);
+            svgUtilities.setXxxhdpiW(svgUtilities.DEFAULT_XXXHDPI);
+            svgUtilities.setXxxhdpiH(svgUtilities.DEFAULT_XXXHDPI);
+
+        } else if (preset.equals(SvgUtilities.MIPMAP)) {
+            svgUtilities.setMdpiW(svgUtilities.DEFAULT_MDPI_MIPMAP);
+            svgUtilities.setMdpiH(svgUtilities.DEFAULT_MDPI_MIPMAP);
+            svgUtilities.setHdpiW(svgUtilities.DEFAULT_HDPI_MIPMAP);
+            svgUtilities.setHdpiH(svgUtilities.DEFAULT_HDPI_MIPMAP);
+            svgUtilities.setXhdpiW(svgUtilities.DEFAULT_XHDPI_MIPMAP);
+            svgUtilities.setXhdpiH(svgUtilities.DEFAULT_XHDPI_MIPMAP);
+            svgUtilities.setXxhdpiW(svgUtilities.DEFAULT_XXHDPI_MIPMAP);
+            svgUtilities.setXxhdpiH(svgUtilities.DEFAULT_XXHDPI_MIPMAP);
+            svgUtilities.setXxxhdpiW(svgUtilities.DEFAULT_XXXHDPI_MIPMAP);
+            svgUtilities.setXxxhdpiH(svgUtilities.DEFAULT_XXXHDPI_MIPMAP);
+        }
+
+        loadDefaultValue();
     }
 
 }
