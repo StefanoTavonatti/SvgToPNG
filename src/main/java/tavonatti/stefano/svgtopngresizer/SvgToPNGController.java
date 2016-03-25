@@ -119,13 +119,15 @@ public class SvgToPNGController {
         }
 
         //TODO test
-        try {
+        /*try {
             SvgUtilities.SvgToPNG(inputFile,new File(outputDirectory.getAbsoluteFile()+"/"+inputFile.getName()+".png"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TranscoderException e) {
             e.printStackTrace();
-        }
+        }*/
+
+        svgUtilities.transcodeAll(outputDirectory);
 
 
     }
