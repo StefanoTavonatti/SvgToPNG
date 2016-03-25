@@ -138,7 +138,7 @@ public class SvgUtilities {
         }
 
         String fileName=inputFile.getName();
-        fileName=fileName.substring(0,fileName.length()-5);
+        fileName=fileName.substring(0,fileName.length()-4);
         fileName+=".png";
 
         try {
