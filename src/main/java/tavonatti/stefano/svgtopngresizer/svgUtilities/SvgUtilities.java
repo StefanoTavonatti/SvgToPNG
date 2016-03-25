@@ -6,6 +6,8 @@ import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.JPEGTranscoder;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
 
 /**
@@ -43,12 +45,17 @@ public class SvgUtilities {
         OutputStream ostream = new FileOutputStream(outputFile);
         TranscoderOutput output = new TranscoderOutput(ostream);
 
+        pngTranscoder.addTranscodingHint( PNGTranscoder.KEY_WIDTH, new Float( 50 ) );
+        pngTranscoder.addTranscodingHint( PNGTranscoder.KEY_HEIGHT, new Float( 50 ) );
+
         // Save the image.
         pngTranscoder.transcode(input, output);
 
         // Flush and close the stream.
         ostream.flush();
         ostream.close();
+
+        System.out.println("Conversion complete");
     }
 
     public boolean isHeightLocked() {
