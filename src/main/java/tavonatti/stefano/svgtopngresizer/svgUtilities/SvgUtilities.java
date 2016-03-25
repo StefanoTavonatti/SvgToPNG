@@ -16,7 +16,7 @@ import java.util.Iterator;
  * Created by stefano on 08/03/16.
  */
 public class SvgUtilities {
-    private boolean heightLocked;
+    private boolean heightLocked=true;
     private boolean widthLocked;
     private int mdpiW=DEFAULT_MDPI;
     private int mdpiH=DEFAULT_MDPI;
@@ -135,11 +135,19 @@ public class SvgUtilities {
         fileName+=".png";
 
         try {
-            SvgToPNG(inputFile,new File(outputMdpi.getAbsolutePath()+"/"+fileName),mdpiW,mdpiH);
-            SvgToPNG(inputFile,new File(outputHdpi.getAbsolutePath()+"/"+fileName),hdpiW,hdpiH);
-            SvgToPNG(inputFile,new File(outputXhdpi.getAbsolutePath()+"/"+fileName),xhdpiW,xhdpiH);
-            SvgToPNG(inputFile,new File(outputXxhdpi.getAbsolutePath()+"/"+fileName),xxhdpiW,xxhdpiH);
-            SvgToPNG(inputFile,new File(outputXxxhdpi.getAbsolutePath()+"/"+fileName),xxxhdpiW,xxxhdpiH);
+            if(isHeightLocked()) {
+                SvgToPNG(inputFile, new File(outputMdpi.getAbsolutePath() + "/" + fileName), mdpiW, mdpiH);
+                SvgToPNG(inputFile, new File(outputHdpi.getAbsolutePath() + "/" + fileName), hdpiW, hdpiH);
+                SvgToPNG(inputFile, new File(outputXhdpi.getAbsolutePath() + "/" + fileName), xhdpiW, xhdpiH);
+                SvgToPNG(inputFile, new File(outputXxhdpi.getAbsolutePath() + "/" + fileName), xxhdpiW, xxhdpiH);
+                SvgToPNG(inputFile, new File(outputXxxhdpi.getAbsolutePath() + "/" + fileName), xxxhdpiW, xxxhdpiH);
+            }else {
+                SvgToPNG(inputFile, new File(outputMdpi.getAbsolutePath() + "/" + fileName), mdpiW, mdpiW);
+                SvgToPNG(inputFile, new File(outputHdpi.getAbsolutePath() + "/" + fileName), hdpiW, hdpiW);
+                SvgToPNG(inputFile, new File(outputXhdpi.getAbsolutePath() + "/" + fileName), xhdpiW, xhdpiW);
+                SvgToPNG(inputFile, new File(outputXxhdpi.getAbsolutePath() + "/" + fileName), xxhdpiW, xxhdpiW);
+                SvgToPNG(inputFile, new File(outputXxxhdpi.getAbsolutePath() + "/" + fileName), xxxhdpiW, xxxhdpiW);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             return false;

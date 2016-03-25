@@ -13,7 +13,7 @@ import tavonatti.stefano.svgtopngresizer.svgUtilities.SvgUtilities;
  * Created by stefano on 12/03/16.
  */
 public class SettingController {
-    @FXML private CheckBox lockWidth;
+    //@FXML private CheckBox lockWidth;
     @FXML private CheckBox lockHeight;
     @FXML private TextField mdpiW,mdpiH;
     @FXML private TextField hdpiW,hdpiH;
@@ -27,16 +27,16 @@ public class SettingController {
 
     }
 
-    @FXML public void handleLockWidthClick(ActionEvent actionEvent){
+    /*@FXML public void handleLockWidthClick(ActionEvent actionEvent){
         lockHeight.setSelected(false);
         setWidthFieldEnabled(!lockWidth.isSelected());
         setHeightEnabled(!lockHeight.isSelected());
-    }
+    }*/
 
     @FXML public void handleLockHeightClick(ActionEvent actionEvent){
-        lockWidth.setSelected(false);
+        //lockWidth.setSelected(false);
         setHeightEnabled(!lockHeight.isSelected());
-        setWidthFieldEnabled(!lockWidth.isSelected());
+        //setWidthFieldEnabled(!lockWidth.isSelected());
     }
 
     @FXML public void handleOKClick(ActionEvent actionEvent){
@@ -134,6 +134,9 @@ public class SettingController {
 
         fileNameComboBox.getItems().addAll(SvgUtilities.DRAWABLE,SvgUtilities.MIPMAP);
         fileNameComboBox.setValue(svgUtilities.getOutputName());
+
+        lockHeight.setSelected(svgUtilities.isHeightLocked());
+        setHeightEnabled(!svgUtilities.isHeightLocked());
     }
 
 }

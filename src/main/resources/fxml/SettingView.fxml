@@ -16,7 +16,7 @@
        <Label text="Output folders namename" GridPane.columnIndex="0" GridPane.rowIndex="0" />
    
        <!--<TextField text="drawable" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
-       <ComboBox fx:id="fileNameComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+       <ComboBox fx:id="fileNameComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0" />
        
       <Label text="mdpi size" GridPane.rowIndex="2" />
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -54,16 +54,16 @@
              <Label text="X" />
             <TextField fx:id="xxxhdpiH" />
          </children></HBox>
-      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <HBox alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <CheckBox fx:id="lockWidth" mnemonicParsing="false" onAction="#handleLockWidthClick" text="width lock" />
-            <CheckBox fx:id="lockHeight" mnemonicParsing="false" onAction="#handleLockHeightClick" text="height lock" />
+            <!--<CheckBox fx:id="lockWidth" mnemonicParsing="false" onAction="#handleLockWidthClick" text="width lock" />-->
+            <CheckBox fx:id="lockHeight" mnemonicParsing="false" onAction="#handleLockHeightClick" text="lock size" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <children>
-            <Button mnemonicParsing="false" text="OK" onAction="#handleOKClick"/>
-            <Button mnemonicParsing="false" text="Cancel" onAction="#handleCancelClick" />
+            <Button mnemonicParsing="false" onAction="#handleOKClick" text="OK" />
+            <Button mnemonicParsing="false" onAction="#handleCancelClick" text="Cancel" />
          </children>
       </HBox>
    </children>
