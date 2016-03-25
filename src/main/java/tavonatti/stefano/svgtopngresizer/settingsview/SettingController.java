@@ -121,16 +121,16 @@ public class SettingController {
     }
 
     private void loadDefaultValue(){
-        mdpiW.setText(""+SvgUtilities.DEFAULT_MDPI);
-        mdpiH.setText(""+SvgUtilities.DEFAULT_MDPI);
-        hdpiW.setText(""+SvgUtilities.DEFAULT_HDPI);
-        hdpiH.setText(""+SvgUtilities.DEFAULT_HDPI);
-        xhdpiW.setText(""+SvgUtilities.DEFAULT_XHDPI);
-        xhdpiH.setText(""+SvgUtilities.DEFAULT_XHDPI);
-        xxhdpiW.setText(""+SvgUtilities.DEFAULT_XXHDPI);
-        xxhdpiH.setText(""+SvgUtilities.DEFAULT_XXHDPI);
-        xxxhdpiW.setText(""+SvgUtilities.DEFAULT_XXXHDPI);
-        xxxhdpiH.setText(""+SvgUtilities.DEFAULT_XXXHDPI);
+        mdpiW.setText(""+svgUtilities.getMdpiW());
+        mdpiH.setText(""+svgUtilities.getMdpiH());
+        hdpiW.setText(""+svgUtilities.getHdpiW());
+        hdpiH.setText(""+svgUtilities.getHdpiH());
+        xhdpiW.setText(""+svgUtilities.getXhdpiW());
+        xhdpiH.setText(""+svgUtilities.getXhdpiH());
+        xxhdpiW.setText(""+svgUtilities.getXxhdpiW());
+        xxhdpiH.setText(""+svgUtilities.getXxhdpiH());
+        xxxhdpiW.setText(""+svgUtilities.getXxxhdpiW());
+        xxxhdpiH.setText(""+svgUtilities.getXxxhdpiH());
     }
 
 }

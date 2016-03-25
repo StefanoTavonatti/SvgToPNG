@@ -127,7 +127,7 @@ public class SvgToPNGController {
             e.printStackTrace();
         }*/
 
-        svgUtilities.transcodeAll(outputDirectory);
+        svgUtilities.transcodeAll(inputFile,outputDirectory);
 
 
     }

@@ -89,7 +89,7 @@ public class SvgUtilities {
         System.out.println("Conversion complete");
     }
 
-    public boolean transcodeAll(File outputDir){
+    public boolean transcodeAll(File inputFile,File outputDir){
 
         if(!outputDir.exists())
             return false;
@@ -130,6 +130,23 @@ public class SvgUtilities {
             }
         }
 
+        String fileName=inputFile.getName();
+        fileName=fileName.substring(0,fileName.length()-5);
+        fileName+=".png";
+
+        try {
+            SvgToPNG(inputFile,new File(outputMdpi.getAbsolutePath()+"/"+fileName),mdpiW,mdpiH);
+            SvgToPNG(inputFile,new File(outputHdpi.getAbsolutePath()+"/"+fileName),hdpiW,hdpiH);
+            SvgToPNG(inputFile,new File(outputXhdpi.getAbsolutePath()+"/"+fileName),xhdpiW,xhdpiH);
+            SvgToPNG(inputFile,new File(outputXxhdpi.getAbsolutePath()+"/"+fileName),xxhdpiW,xxhdpiH);
+            SvgToPNG(inputFile,new File(outputXxxhdpi.getAbsolutePath()+"/"+fileName),xxxhdpiW,xxxhdpiH);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        } catch (TranscoderException e) {
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 
