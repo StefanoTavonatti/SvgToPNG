@@ -5,10 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import tavonatti.stefano.svgtopngresizer.svgUtilities.SvgUtilities;
 
@@ -23,6 +20,7 @@ public class SettingController {
     @FXML private TextField xhdpiW,xhdpiH;
     @FXML private TextField xxhdpiW,xxhdpiH;
     @FXML private TextField xxxhdpiW,xxxhdpiH;
+    @FXML private ComboBox<String> fileNameComboBox;
     private SvgUtilities svgUtilities=new SvgUtilities();
 
     public SettingController(){
@@ -60,6 +58,7 @@ public class SettingController {
             showErrorAlert("Integer parse error");
         }
 
+        svgUtilities.setOutputName(fileNameComboBox.getValue());
         if(!error){
             Button button= (Button) actionEvent.getSource();
             ((Stage)button.getScene().getWindow()).close();
@@ -116,6 +115,7 @@ public class SettingController {
         xxhdpiH.textProperty().addListener(new MyChangeListener(xxhdpiH));
         xxxhdpiW.textProperty().addListener(new MyChangeListener(xxxhdpiW));
         xxxhdpiH.textProperty().addListener(new MyChangeListener(xxxhdpiH));
+        fileNameComboBox.setEditable(false);
 
         loadDefaultValue();
     }
@@ -131,6 +131,9 @@ public class SettingController {
         xxhdpiH.setText(""+svgUtilities.getXxhdpiH());
         xxxhdpiW.setText(""+svgUtilities.getXxxhdpiW());
         xxxhdpiH.setText(""+svgUtilities.getXxxhdpiH());
+
+        fileNameComboBox.getItems().addAll(SvgUtilities.DRAWABLE,SvgUtilities.MIPMAP);
+        fileNameComboBox.setValue(svgUtilities.getOutputName());
     }
 
 }
