@@ -13,65 +13,68 @@
     <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
    <children>
    
-       <Label text="Output folders namename" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+       <Label text="Output folders namename" GridPane.rowIndex="1" />
    
        <!--<TextField text="drawable" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
-       <ComboBox fx:id="fileNameComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#handleComboBoxClick"/>
+       <ComboBox fx:id="presetComboBox" onAction="#handleComboBoxClick" GridPane.columnIndex="1" GridPane.rowIndex="0" />
        
-      <Label text="mdpi size" GridPane.rowIndex="2" />
-      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label text="mdpi size" GridPane.rowIndex="3" />
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
             <TextField fx:id="mdpiW" />
              <Label text="X" />
             <TextField fx:id="mdpiH" />
          </children>
       </HBox>
-      <Label text="hdpi size" GridPane.rowIndex="3" />
-      <Label text="xhdpi size" GridPane.rowIndex="4" />
-      <Label text="xxhdpi size" GridPane.rowIndex="5" />
-      <Label text="xxxhdpi size" GridPane.rowIndex="6" />
-      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label text="hdpi size" GridPane.rowIndex="4" />
+      <Label text="xhdpi size" GridPane.rowIndex="5" />
+      <Label text="xxhdpi size" GridPane.rowIndex="6" />
+      <Label text="xxxhdpi size" GridPane.rowIndex="7" />
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
             <TextField fx:id="hdpiW" />
              <Label text="X" />
             <TextField fx:id="hdpiH" />
          </children></HBox>
-      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <children>
             <TextField fx:id="xhdpiW" />
              <Label text="X" />
             <TextField fx:id="xhdpiH" />
          </children></HBox>
-      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <children>
             <TextField fx:id="xxhdpiW" />
              <Label text="X" />
             <TextField fx:id="xxhdpiH" />
          </children></HBox>
-      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <children>
             <TextField fx:id="xxxhdpiW" />
              <Label text="X" />
             <TextField fx:id="xxxhdpiH" />
          </children></HBox>
-      <HBox alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <HBox alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
             <!--<CheckBox fx:id="lockWidth" mnemonicParsing="false" onAction="#handleLockWidthClick" text="width lock" />-->
             <CheckBox fx:id="lockHeight" mnemonicParsing="false" onAction="#handleLockHeightClick" text="lock size" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+      <HBox alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
          <children>
             <Button mnemonicParsing="false" onAction="#handleOKClick" text="OK" />
             <Button mnemonicParsing="false" onAction="#handleCancelClick" text="Cancel" />
          </children>
       </HBox>
+      <Label text="Preset" />
+      <TextField fx:id="fileNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />

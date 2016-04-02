@@ -1,10 +1,7 @@
 package tavonatti.stefano.svgtopngresizer.settingsview;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import tavonatti.stefano.svgtopngresizer.svgUtilities.SvgUtilities;
@@ -20,7 +17,8 @@ public class SettingController {
     @FXML private TextField xhdpiW,xhdpiH;
     @FXML private TextField xxhdpiW,xxhdpiH;
     @FXML private TextField xxxhdpiW,xxxhdpiH;
-    @FXML private ComboBox<String> fileNameComboBox;
+    @FXML private ComboBox<String> presetComboBox;
+    @FXML private TextField fileNameTextField;
     private SvgUtilities svgUtilities=new SvgUtilities();
 
     public SettingController(){
@@ -58,7 +56,7 @@ public class SettingController {
             showErrorAlert("Integer parse error");
         }
 
-        svgUtilities.setOutputName(fileNameComboBox.getValue());
+        svgUtilities.setOutputName(fileNameTextField.getText());
         if(!error){
             Button button= (Button) actionEvent.getSource();
             ((Stage)button.getScene().getWindow()).close();
@@ -72,7 +70,7 @@ public class SettingController {
     }
 
     @FXML public void handleComboBoxClick(ActionEvent actionEvent){
-        String s = fileNameComboBox.getValue();
+        String s = presetComboBox.getValue();
 
         loadPreset(s);
     }
@@ -121,7 +119,7 @@ public class SettingController {
         xxhdpiH.textProperty().addListener(new MyChangeListener(xxhdpiH));
         xxxhdpiW.textProperty().addListener(new MyChangeListener(xxxhdpiW));
         xxxhdpiH.textProperty().addListener(new MyChangeListener(xxxhdpiH));
-        fileNameComboBox.setEditable(false);
+        presetComboBox.setEditable(false);
 
         loadDefaultValue();
         loadComboBox();
@@ -138,13 +136,13 @@ public class SettingController {
         xxhdpiH.setText(""+svgUtilities.getXxhdpiH());
         xxxhdpiW.setText(""+svgUtilities.getXxxhdpiW());
         xxxhdpiH.setText(""+svgUtilities.getXxxhdpiH());
-
+        fileNameTextField.setText(svgUtilities.getOutputName());
 
     }
 
     private void loadComboBox() {
-        fileNameComboBox.getItems().addAll(SvgUtilities.DRAWABLE,SvgUtilities.MIPMAP);
-        fileNameComboBox.setValue(svgUtilities.getOutputName());
+        presetComboBox.getItems().addAll(SvgUtilities.DRAWABLE,SvgUtilities.MIPMAP);
+        presetComboBox.setValue(svgUtilities.getOutputName());
 
         lockHeight.setSelected(svgUtilities.isHeightLocked());
         setHeightEnabled(!svgUtilities.isHeightLocked());
@@ -163,6 +161,7 @@ public class SettingController {
             svgUtilities.setXxhdpiH(svgUtilities.DEFAULT_XXHDPI);
             svgUtilities.setXxxhdpiW(svgUtilities.DEFAULT_XXXHDPI);
             svgUtilities.setXxxhdpiH(svgUtilities.DEFAULT_XXXHDPI);
+            svgUtilities.setOutputName(SvgUtilities.DRAWABLE);
 
         } else if (preset.equals(SvgUtilities.MIPMAP)) {
             svgUtilities.setMdpiW(svgUtilities.DEFAULT_MDPI_MIPMAP);
@@ -175,6 +174,7 @@ public class SettingController {
             svgUtilities.setXxhdpiH(svgUtilities.DEFAULT_XXHDPI_MIPMAP);
             svgUtilities.setXxxhdpiW(svgUtilities.DEFAULT_XXXHDPI_MIPMAP);
             svgUtilities.setXxxhdpiH(svgUtilities.DEFAULT_XXXHDPI_MIPMAP);
+            svgUtilities.setOutputName(SvgUtilities.MIPMAP);
         }
 
         loadDefaultValue();
