@@ -14,9 +14,6 @@
    <children>
    
        <Label text="Output folders namename" GridPane.rowIndex="1" />
-   
-       <!--<TextField text="drawable" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
-       <ComboBox fx:id="presetComboBox" onAction="#handleComboBoxClick" GridPane.columnIndex="1" GridPane.rowIndex="0" />
        
       <Label text="mdpi size" GridPane.rowIndex="3" />
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -68,6 +65,15 @@
       </HBox>
       <Label text="Preset" />
       <TextField fx:id="fileNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <HBox prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+         
+             <!--<TextField text="drawable" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
+             <ComboBox fx:id="presetComboBox" onAction="#handleComboBoxClick" />
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="28.0" />
+            <Button mnemonicParsing="false" text="Save" />
+         </children>
+      </HBox>
    </children>
    <columnConstraints>
       <ColumnConstraints />
