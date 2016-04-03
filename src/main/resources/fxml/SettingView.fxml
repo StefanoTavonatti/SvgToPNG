@@ -13,7 +13,7 @@
     <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
    <children>
    
-       <Label text="Output folders namename" GridPane.rowIndex="1" />
+       <Label text="Output folders name" GridPane.rowIndex="1" />
        
       <Label text="mdpi size" GridPane.rowIndex="3" />
       <HBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
