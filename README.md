@@ -1,4 +1,4 @@
-SvgToPng is a piece software that can help a developer to create icons for an Android project. This software takes as input a SVG image file, creates a series of PNG image with the right size and puts it in the corrects folders.
+﻿SvgToPng is a piece software that can help a developer to create icons for an Android project. This software takes as input a SVG image file, creates a series of PNG image with the right size and puts it in the corrects folders.
 
 **Install**
 
@@ -9,13 +9,14 @@ Download last build from [here](https://github.com/StefanoTavonatti/SvgToPNG/rel
 Download and install last version of maven on your system
 
 ```bash
+git clone https://github.com/StefanoTavonatti/SvgToPNG.git
 cd SvgToPNG
 mvn package
 ```
 
 run the project with:
 ```bash
-java -jar target/SvgToPNG-resizer-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar target/SvgToPNG-resizer-0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 **How to use the application**
