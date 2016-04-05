@@ -71,7 +71,7 @@
              <!--<TextField text="drawable" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
              <ComboBox fx:id="presetComboBox" onAction="#handleComboBoxClick" />
             <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="28.0" />
-            <Button mnemonicParsing="false" text="Save" />
+            <Button mnemonicParsing="false" text="Save" disable="true" />
          </children>
       </HBox>
    </children>
